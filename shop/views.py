@@ -132,7 +132,7 @@ def checkout(request):
                 "CHANNEL_ID": "WEB",
                 "INDUSTRY_TYPE_ID": "Retail",
                 "WEBSITE": "WEBSTAGING",
-                "CALLBACK_URL" : "http://127.0.0.1:8000/shop/handlerequest/",
+                "CALLBACK_URL" : "https://razaawesomecart.herokuapp.com/shop/handlerequest/",
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict,MERCHANT_KEY)
         return render(request,'shop/paytm.html', {'param_dict':param_dict})      
