@@ -116,7 +116,7 @@ updatePopover(cart);
 function updatePopover(cart) {
     console.log('We are inside updatePopover');
     var popStr = "";
-    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+    popStr = popStr + "<h5> Cart for your items in my shopping cart<br>(hide by double-click on cart button) </h5><div class='mx-2 my-2'>";
     var i = 1;
     for (var item in cart) {
         popStr = popStr + "<b>" + i + "</b>. ";
