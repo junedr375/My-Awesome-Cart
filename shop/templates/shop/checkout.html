@@ -61,7 +61,7 @@
                 <label for="inputZip">Phone Number</label>
                 <input type="tel" class="form-control" id="phone" name="phone">
             </div>
-            <button type="submit" class="btn btn-primary">Place Order</button>
+            <button type="submit" class="btn btn-primary" onclick='clearCart()' id ='clearCart'>Place Order</button>
         </form>
     </div>
 </div>
@@ -111,9 +111,16 @@ document.getElementById('disPrice').innerHTML = disPrice;
 $('#itemsJson').val(JSON.stringify(cart)); 
 {% if thank %}
 alert('Thanks for ordering with us. Your order is is {{id}}. Use it to track your order using our order tracker');
-localStorage.clear();
+    localStorage.clear();
 document.location = "/shop"; 
+
+function clearCart() {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    localStorage.clear();
+    cart = {};
+}
 {% endif %}
+
 $('#amount').val($('#disPrice').html())
 $('#disamount').val($('#disPrice').html())
 </script>
