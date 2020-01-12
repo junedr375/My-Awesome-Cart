@@ -20,6 +20,8 @@ def index(request):
 		allProds.append([prod, range(1, nSlides), nSlides])
 	params = {'allProds':allProds}			
 	return render(request, 'shop/index.html',params)
+
+    
 def match(query,item):
     query=query.lower()
     item.desc=item.desc.lower()
