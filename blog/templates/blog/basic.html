@@ -39,6 +39,18 @@
                     <a class="nav-link" href="/blog">Blog</a>
                 </li>
             </ul>
+            {% if user.is_authenticated %}
+            <ul class="nav-item">
+                <a class="nav-link" href="/logout"><button class="btn btn-danger my-2 my-sm-0">Logout</button></a>
+            </ul>
+            <ul class="nav-item">
+                <a class="nav-link" href="/profile"><button class="btn btn-info my-2 my-sm-0">Profile</button></a>
+            </ul>
+            {% else %}
+            <ul class="nav-item">
+                <a class="nav-link" href="/login"><button class="btn btn-danger my-2 my-sm-0">Login</button></a>
+            </ul>
+            {% endif %}
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

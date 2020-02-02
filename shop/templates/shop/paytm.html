@@ -9,7 +9,7 @@
 <body>
     <h1>Redirecting yoy to merchant...</h1>
     <h1>Please Do Not Refresh your page...</h1>
-    <form action="https://securegw-stage.paytm.in/order/process" method="post" name="paytm">
+    <form action="https://securegw-stage.paytm.in/order/process" method="post" name="paytm">{% csrf_token %}
         {% for key, value in param_dict.items %}
         <input type="hidden" name="{{key}}" value="{{value}}">
         {% endfor %}

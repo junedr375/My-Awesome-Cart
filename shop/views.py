@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .models import Product, Contact, Orders, OrderUpdate
 from math import ceil
 import json
@@ -65,6 +66,7 @@ def search(request):
 def	about(request):
 	return render(request, 'shop/about.html')
 
+@login_required
 def	contact(request):
 	if request.method=="POST":
 		name= request.POST.get('name','')		
@@ -78,6 +80,8 @@ def	contact(request):
 		return render(request, 'shop/contact.html', {'done':done})
 	return render(request, 'shop/contact.html')
 
+
+@login_required
 def tracker(request):
     if request.method=="POST":
         orderId = request.POST.get('orderId', '')
@@ -104,7 +108,7 @@ def	products(request, myid):
 
 	return render(request, 'shop/products.html',{'product':product[0]})
 
-
+@login_required
 def checkout(request):
     if request.method=="POST":
         items_json = request.POST.get('itemsJson', '')
@@ -134,7 +138,7 @@ def checkout(request):
                 "CHANNEL_ID": "WEB",
                 "INDUSTRY_TYPE_ID": "Retail",
                 "WEBSITE": "WEBSTAGING",
-                "CALLBACK_URL" : "https://razaawesomecart.herokuapp.com/shop/handlerequest/",
+                "CALLBACK_URL" : "http://127.0.0.1:8000/shop/handlerequest/",
         }
         param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict,MERCHANT_KEY)
         return render(request,'shop/paytm.html', {'param_dict':param_dict})      
