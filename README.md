@@ -7,4 +7,4 @@ E commerce website with django. Which can gives additional discount. Have these 
 4. Searching Facility
 5. Hosted on heroku
 
-live server link <a href = "http://razaawesomecart.herokuapp.com/">Click Here</a>
+live server link <a href = "http://razaawesomecart.herokuapp.com/" target="_blank">Click Here</a>
